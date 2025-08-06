@@ -5,7 +5,7 @@ class Product:
     quantity: int
 
     def __init__(self, name, description, price, quantity):
-        ''' Инициализация класса Product'''
+        """Инициализация класса Product"""
         self.name = name
         self.description = description
         self.price = price
