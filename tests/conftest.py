@@ -32,3 +32,13 @@ def second_category():
 @pytest.fixture
 def product():
     return Product("Tefal 457", "Black, 2000W", 4999.99, 8)
+
+
+@pytest.fixture
+def dict_product():
+    return {"name": "Tefal 457", "description": "Black, 2000W", "price": 5999.99, "quantity": 4}
+
+
+@pytest.fixture
+def dict_product_price_is_lower():
+    return {"name": "Tefal 457", "description": "Black, 2000W", "price": 3999.99, "quantity": 3}
