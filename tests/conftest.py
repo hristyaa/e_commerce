@@ -35,6 +35,11 @@ def product():
 
 
 @pytest.fixture
+def product_2():
+    return Product("Vitek 880", "Blue, 1800W", 2399.99, 7)
+
+
+@pytest.fixture
 def dict_product():
     return {"name": "Tefal 457", "description": "Black, 2000W", "price": 5999.99, "quantity": 4}
 

@@ -21,3 +21,8 @@ def test_categories_add_product(first_category, product):
     assert len(first_category.products_in_list) == 2
     first_category.add_product(product)
     assert len(first_category.products_in_list) == 3
+
+
+def test_categories_str(second_category):
+    '''Тест строкового отображения класса Category'''
+    assert str(second_category) == 'Фены, количество продуктов: 17 шт.'
