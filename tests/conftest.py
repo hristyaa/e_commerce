@@ -1,6 +1,7 @@
 import pytest
 
 from src.categories import Category
+from src.product_iterator import ProductIterator
 from src.products import Product
 
 
@@ -47,3 +48,8 @@ def dict_product():
 @pytest.fixture
 def dict_product_price_is_lower():
     return {"name": "Tefal 457", "description": "Black, 2000W", "price": 3999.99, "quantity": 3}
+
+
+@pytest.fixture
+def product_iterator(second_category):
+    return ProductIterator(second_category)

@@ -14,7 +14,6 @@ class Product:
         self.__price = price
         self.quantity = quantity
 
-
     def __str__(self):
         """Строковое отображение класса Product"""
         return f"{self.name}, {self.__price} руб. Остаток: {self.quantity} шт."
