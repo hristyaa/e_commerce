@@ -84,13 +84,10 @@ def test_new_product_in_list_products_lower_price_any_input(mock_input, dict_pro
 
 
 def test_products_str(product):
-    '''Тест строкового отображения класса Product'''
-    assert str(product) == 'Tefal 457, 4999.99 руб. Остаток: 8 шт.'
+    """Тест строкового отображения класса Product"""
+    assert str(product) == "Tefal 457, 4999.99 руб. Остаток: 8 шт."
 
 
 def test_products_add(product, product_2):
-    '''Тест суммирования полной стоимости товаров на складе'''
+    """Тест суммирования полной стоимости товаров на складе"""
     assert product + product_2 == 56799.85
-
-
-
