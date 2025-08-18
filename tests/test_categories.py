@@ -1,3 +1,6 @@
+import pytest
+
+
 def test_categories_init(first_category, second_category):
     assert first_category.name == "Парогенераторы"
     assert first_category.description == "Парогенератор изменит Ваше представление об уходе за одеждой"
@@ -26,3 +29,23 @@ def test_categories_add_product(first_category, product):
 def test_categories_str(second_category):
     """Тест строкового отображения класса Category"""
     assert str(second_category) == "Фены, количество продуктов: 17 шт."
+
+
+def test_categories_add_product_smartphone(first_category, product_smartphone_1, product, product_lawn_grass_1):
+    """Проверка на добавление в категорию смартфонов, травы газонной или других продуктов"""
+    first_category.add_product(product_smartphone_1)
+    assert first_category.products_in_list[-1].name == "Iphone 15"
+    first_category.add_product(product)
+    assert first_category.products_in_list[-1].name == "Tefal 457"
+    first_category.add_product(product_lawn_grass_1)
+    assert first_category.products_in_list[-1].name == "Газонная трава"
+    assert first_category.products_in_list[-3].name == "Iphone 15"
+    assert first_category.products_in_list[-2].name == "Tefal 457"
+
+
+def test_categories_add_product_error(first_category, second_category):
+    """Проверка на ошибку при добавлении в категорию любого объекта вместо продукта или его наследников"""
+    with pytest.raises(TypeError):
+        first_category.add_product(2)
+        first_category.add_product("Утюг")
+        first_category.add_product(second_category)

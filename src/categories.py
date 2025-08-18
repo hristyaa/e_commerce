@@ -1,4 +1,5 @@
 from src.products import Product
+
 # from src.smartphone import Smartphone
 # from src.lawn_grass import LawnGrass
 
@@ -41,10 +42,10 @@ class Category:
         else:
             raise TypeError
 
-
     @property
     def products_in_list(self):
         return self.__products
+
 
 # product1 = Product("Samsung Galaxy S23 Ultra", "256GB, Серый цвет, 200MP камера", 180000.0, 5)
 # product2 = Product("Iphone 15", "512GB, Gray space", 210000.0, 8)
@@ -79,4 +80,3 @@ class Category:
 # print(Category.products)
 # print(category1)
 #
-
