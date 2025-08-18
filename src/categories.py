@@ -1,4 +1,8 @@
-# from src.products import Product
+from src.products import Product
+# from src.smartphone import Smartphone
+# from src.lawn_grass import LawnGrass
+
+
 class Category:
     name: str
     description: str
@@ -31,13 +35,16 @@ class Category:
 
     def add_product(self, product):
         """Добавление товаров в категорию"""
-        self.__products.append(product)
-        Category.product_count += 1
+        if isinstance(product, Product):
+            self.__products.append(product)
+            Category.product_count += 1
+        else:
+            raise TypeError
+
 
     @property
     def products_in_list(self):
         return self.__products
-
 
 # product1 = Product("Samsung Galaxy S23 Ultra", "256GB, Серый цвет, 200MP камера", 180000.0, 5)
 # product2 = Product("Iphone 15", "512GB, Gray space", 210000.0, 8)
@@ -55,7 +62,21 @@ class Category:
 # print(category1.products)
 # print(category1.product_count)
 #
+# product5 = Smartphone("Xiaomi Redmi Note 11", "1024GB, Синий", 31000.0, 14, 90.3, "Note 11", 1024, "Синий")
+# category1.add_product(product5)
+# print()
+# print(category1.products)
+# product6 = LawnGrass("Газонная трава", "Элитная трава для газона", 500.0, 20, "Россия", "7 дней", "Зеленый")
+# category1.add_product(product6)
+# print()
+# print(category1.products)
+# product7 = 'dlfkld'
+# category1.add_product(product7)
+#
+# print()
+# print(category1.products)
+#
 # print(Category.products)
 # print(category1)
 #
-# print(product1+product4)
+
