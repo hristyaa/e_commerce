@@ -17,4 +17,3 @@ class LawnGrass(Product):
             return cost_products
         else:
             raise TypeError
-
