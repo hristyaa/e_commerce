@@ -20,8 +20,11 @@ class Product:
 
     def __add__(self, other):
         """Сумма полной стоимости товаров на складе"""
-        cost_products = self.price * self.quantity + other.price * other.quantity
-        return cost_products
+        if type(other) is Product:
+            cost_products = self.price * self.quantity + other.price * other.quantity
+            return cost_products
+        else:
+            raise TypeError
 
     @classmethod
     def new_product(cls, dict_product, list_products=None):
