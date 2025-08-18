@@ -14,11 +14,19 @@ class Category:
         Category.category_count += 1
         Category.product_count += len(products)
 
+    def __str__(self):
+        """Строковое отображение класса Category"""
+        count_product = 0
+        for product in self.__products:
+            count_product += product.quantity
+
+        return f"{self.name}, количество продуктов: {count_product} шт."
+
     @property
     def products(self):
         products_str = ""
         for product in self.__products:
-            products_str += f"{product.name}, {product.price} руб. Остаток: {product.quantity} шт.\n"
+            products_str += f"{str(product)}\n"
         return products_str
 
     def add_product(self, product):
@@ -48,3 +56,6 @@ class Category:
 # print(category1.product_count)
 #
 # print(Category.products)
+# print(category1)
+#
+# print(product1+product4)

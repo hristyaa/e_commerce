@@ -1,6 +1,7 @@
 import pytest
 
 from src.categories import Category
+from src.product_iterator import ProductIterator
 from src.products import Product
 
 
@@ -35,6 +36,11 @@ def product():
 
 
 @pytest.fixture
+def product_2():
+    return Product("Vitek 880", "Blue, 1800W", 2399.99, 7)
+
+
+@pytest.fixture
 def dict_product():
     return {"name": "Tefal 457", "description": "Black, 2000W", "price": 5999.99, "quantity": 4}
 
@@ -42,3 +48,8 @@ def dict_product():
 @pytest.fixture
 def dict_product_price_is_lower():
     return {"name": "Tefal 457", "description": "Black, 2000W", "price": 3999.99, "quantity": 3}
+
+
+@pytest.fixture
+def product_iterator(second_category):
+    return ProductIterator(second_category)
