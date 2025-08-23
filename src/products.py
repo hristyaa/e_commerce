@@ -1,7 +1,7 @@
 # from src.categories import Category
+from src.base_product import BaseProduct
 
-
-class Product:
+class Product(BaseProduct):
     name: str
     description: str
     price: float
