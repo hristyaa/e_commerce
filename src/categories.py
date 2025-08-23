@@ -1,10 +1,11 @@
+from src.base_order import BaseOrder
 from src.products import Product
 
 # from src.smartphone import Smartphone
 # from src.lawn_grass import LawnGrass
 
 
-class Category:
+class Category(BaseOrder):
     name: str
     description: str
     products: list
@@ -56,6 +57,8 @@ class Category:
 #         "Смартфоны, как средство не только коммуникации, но и получения дополнительных функций для удобства жизни",
 #         [product1, product2, product3]
 #     )
+
+# print(category1)
 #
 # print(category1.products)
 # product4 = Product("55\" QLED 4K", "Фоновая подсветка", 123000.0, 7)
