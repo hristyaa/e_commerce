@@ -75,3 +75,12 @@ def product_lawn_grass_1():
 @pytest.fixture
 def product_lawn_grass_2():
     return LawnGrass("Газонная трава 2", "Выносливая трава", 450.0, 15, "США", "5 дней", "Темно-зеленый")
+
+
+@pytest.fixture
+def category_without_products():
+    return Category(
+        name="Фены",
+        description="Современные фены не портят волосы повышенной температурой, а сушат мощным потоком воздуха",
+        products=[],
+    )

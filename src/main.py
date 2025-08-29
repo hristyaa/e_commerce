@@ -1,5 +1,4 @@
 from src.categories import Category
-
 # from src.lawn_grass import LawnGrass
 from src.products import Product
 
@@ -10,7 +9,10 @@ if __name__ == "__main__":
         product_invalid = Product("Бракованный товар", "Неверное количество", 1000.0, 0)
     except ValueError as e:
         print(
-            "Возникла ошибка ValueError прерывающая работу программы при попытке добавить продукт с нулевым количеством")
+            """
+Возникла ошибка ValueError прерывающая работу программы при попытке добавить продукт с нулевым количеством
+"""
+        )
     else:
         print("Не возникла ошибка ValueError при попытке добавить продукт с нулевым количеством")
 
@@ -24,3 +26,12 @@ if __name__ == "__main__":
 
     category_empty = Category("Пустая категория", "Категория без продуктов", [])
     print(category_empty.middle_price())
+
+    try:
+        product_invalid = Product("Бракованный товар", "Неверное количество", 1000.0, 2)
+    except ValueError as e:
+        print(
+            "Возникла ошибка ValueError прерывающая работу программы при попытке добавить продукт с нулевым количеством"
+        )
+    else:
+        category1.add_product(product_invalid)
