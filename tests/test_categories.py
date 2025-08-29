@@ -1,5 +1,7 @@
 import pytest
 
+from src.products import Product
+
 
 def test_categories_init(first_category, second_category):
     assert first_category.name == "Парогенераторы"
@@ -49,3 +51,23 @@ def test_categories_add_product_error(first_category, second_category):
         first_category.add_product(2)
         first_category.add_product("Утюг")
         first_category.add_product(second_category)
+
+
+def test_middle_price(second_category, category_without_products):
+    """Проверка определения среднего ценника товаров в категории"""
+    assert second_category.middle_price() == 4166.66
+    assert category_without_products.middle_price() == 0
+
+
+def test_custom_exception(capsys, second_category):
+    assert len(second_category.products_in_list) == 3
+
+    product_add = Product("Tefal 457", "Black, 2000W", 4999.99, 8)
+    second_category.add_product(product_add)
+    message = capsys.readouterr()
+    assert message.out.strip().split("\n")[-2] == "Товар успешно добавлен"
+    assert message.out.strip().split("\n")[-1] == "Обработка добавления товара завершена"
+
+    with pytest.raises(ValueError):
+        product_add = Product("Tefal 457", "Black, 2000W", 4999.99, 0)
+        second_category.add_product(product_add)
